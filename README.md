@@ -1,5 +1,7 @@
 # Corporate Data Warehouse — Dimensional Modeling & dbt
 
+https://walterbiel.github.io/RetailCorp-Corporate-Data-Warehouse/
+
 > **RetailCorp Analytics Platform** — Data warehouse corporativo construído com modelagem dimensional (Star Schema) e dbt para transformações, sobre PostgreSQL.
 
 ![Architecture](architecture/architecture.svg)
