@@ -1,0 +1,16 @@
+product_id,product_name,category,subcategory,brand,unit_cost,unit_price,sku,is_active,created_at
+p001,Notebook Ultra Pro 15,Eletrônicos,Computadores,TechBrand,2500.00,4299.90,SKU-NB-001,true,2022-01-15
+p002,Smartphone Galaxy X12,Eletrônicos,Celulares,MobileTech,1200.00,2199.90,SKU-SM-002,true,2022-01-20
+p003,Fone Bluetooth Premium,Eletrônicos,Acessórios,SoundMax,150.00,399.90,SKU-FB-003,true,2022-02-01
+p004,Monitor 27" 4K,Eletrônicos,Monitores,VisionTech,800.00,1599.90,SKU-MN-004,true,2022-02-10
+p005,Teclado Mecânico RGB,Eletrônicos,Periféricos,KeyMaster,120.00,329.90,SKU-TM-005,true,2022-02-15
+p006,Camiseta Polo Executiva,Vestuário,Camisas,StyleCorp,35.00,129.90,SKU-CP-006,true,2022-03-01
+p007,Calça Jeans Slim Fit,Vestuário,Calças,DenimPro,60.00,219.90,SKU-CJ-007,true,2022-03-05
+p008,Tênis Runner Pro,Vestuário,Calçados,SportFit,180.00,449.90,SKU-TR-008,true,2022-03-10
+p009,Mochila Executiva 25L,Vestuário,Bolsas,CarryOn,95.00,289.90,SKU-ME-009,true,2022-03-15
+p010,Relógio Smart Watch,Eletrônicos,Wearables,TimeTech,350.00,799.90,SKU-RW-010,true,2022-04-01
+p011,Arroz Integral 5kg,Alimentos,Grãos,NaturalFood,18.00,39.90,SKU-AI-011,true,2022-04-05
+p012,Café Especial 500g,Alimentos,Bebidas,CaféMundo,25.00,64.90,SKU-CE-012,true,2022-04-10
+p013,Azeite Extra Virgem 500ml,Alimentos,Óleos,OliveGold,22.00,59.90,SKU-AE-013,true,2022-04-15
+p014,Whey Protein 1kg,Alimentos,Suplementos,FitNutrition,85.00,189.90,SKU-WP-014,true,2022-04-20
+p015,Mouse Wireless Ergonômico,Eletrônicos,Periféricos,ErgoTech,45.00,149.90,SKU-MW-015,true,2022-05-01

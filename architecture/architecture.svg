@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="1100" height="620" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="550" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">
+    RetailCorp — Corporate Data Warehouse Architecture
+  </text>
+  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#64748B">
+    PostgreSQL · dbt (Staging → Intermediate → Marts) · Streamlit
+  </text>
+
+  <!-- ── LANE LABELS ──────────────────────────────────────── -->
+  <!-- Lane 1: Sources -->
+  <rect x="20" y="75" width="155" height="500" fill="#EFF6FF" rx="8" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="97" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#1D4ED8">Sources</text>
+
+  <!-- Lane 2: Raw Layer -->
+  <rect x="190" y="75" width="155" height="500" fill="#F0FDF4" rx="8" stroke="#BBF7D0" stroke-width="1.5"/>
+  <text x="267" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#15803D">Raw Layer</text>
+
+  <!-- Lane 3: Staging -->
+  <rect x="360" y="75" width="155" height="500" fill="#FFFBEB" rx="8" stroke="#FDE68A" stroke-width="1.5"/>
+  <text x="437" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#B45309">dbt Staging</text>
+
+  <!-- Lane 4: Intermediate -->
+  <rect x="530" y="75" width="155" height="500" fill="#FFF7ED" rx="8" stroke="#FED7AA" stroke-width="1.5"/>
+  <text x="607" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#C2410C">dbt Intermediate</text>
+
+  <!-- Lane 5: Marts -->
+  <rect x="700" y="75" width="175" height="500" fill="#FDF4FF" rx="8" stroke="#E9D5FF" stroke-width="1.5"/>
+  <text x="787" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#7C3AED">dbt Marts (Star Schema)</text>
+
+  <!-- Lane 6: BI -->
+  <rect x="890" y="75" width="190" height="500" fill="#FFF1F2" rx="8" stroke="#FECDD3" stroke-width="1.5"/>
+  <text x="985" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#BE123C">BI Layer</text>
+
+  <!-- ── SOURCE BOXES ──────────────────────────────────────── -->
+  <rect x="30" y="115" width="135" height="45" fill="#DBEAFE" rx="6" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="97" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E40AF">CSV Files</text>
+  <text x="97" y="150" text-anchor="middle" font-size="9" fill="#3B82F6">dbt seeds</text>
+
+  <rect x="30" y="175" width="135" height="45" fill="#DBEAFE" rx="6" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="97" y="195" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E40AF">OLTP Simulator</text>
+  <text x="97" y="210" text-anchor="middle" font-size="9" fill="#3B82F6">generate_sample_data.py</text>
+
+  <!-- ── RAW TABLES ──────────────────────────────────────── -->
+  <rect x="200" y="115" width="135" height="35" fill="#DCFCE7" rx="5" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="267" y="136" text-anchor="middle" font-size="10" font-weight="bold" fill="#15803D">raw.customers</text>
+
+  <rect x="200" y="160" width="135" height="35" fill="#DCFCE7" rx="5" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="267" y="181" text-anchor="middle" font-size="10" font-weight="bold" fill="#15803D">raw.products</text>
+
+  <rect x="200" y="205" width="135" height="35" fill="#DCFCE7" rx="5" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="267" y="226" text-anchor="middle" font-size="10" font-weight="bold" fill="#15803D">raw.orders</text>
+
+  <rect x="200" y="250" width="135" height="35" fill="#DCFCE7" rx="5" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="267" y="271" text-anchor="middle" font-size="10" font-weight="bold" fill="#15803D">raw.order_items</text>
+
+  <!-- Schema badge -->
+  <rect x="210" y="310" width="115" height="22" fill="#15803D" rx="4"/>
+  <text x="267" y="325" text-anchor="middle" font-size="9" fill="white">schema: raw</text>
+
+  <!-- ── STAGING MODELS ──────────────────────────────────────── -->
+  <rect x="370" y="115" width="135" height="35" fill="#FEF3C7" rx="5" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="437" y="132" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400E">stg_customers</text>
+  <text x="437" y="144" text-anchor="middle" font-size="8" fill="#B45309">limpa + padroniza</text>
+
+  <rect x="370" y="160" width="135" height="35" fill="#FEF3C7" rx="5" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="437" y="177" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400E">stg_products</text>
+  <text x="437" y="189" text-anchor="middle" font-size="8" fill="#B45309">margem calculada</text>
+
+  <rect x="370" y="205" width="135" height="35" fill="#FEF3C7" rx="5" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="437" y="222" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400E">stg_orders</text>
+  <text x="437" y="234" text-anchor="middle" font-size="8" fill="#B45309">dias p/ envio</text>
+
+  <rect x="370" y="250" width="135" height="35" fill="#FEF3C7" rx="5" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="437" y="267" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400E">stg_order_items</text>
+  <text x="437" y="279" text-anchor="middle" font-size="8" fill="#B45309">totais calculados</text>
+
+  <!-- materialization badge -->
+  <rect x="378" y="310" width="119" height="22" fill="#B45309" rx="4"/>
+  <text x="437" y="325" text-anchor="middle" font-size="9" fill="white">materialized: view</text>
+
+  <!-- dbt test badge -->
+  <rect x="378" y="340" width="119" height="22" fill="#D97706" rx="4"/>
+  <text x="437" y="355" text-anchor="middle" font-size="9" fill="white">✓ dbt test</text>
+
+  <!-- ── INTERMEDIATE MODEL ──────────────────────────────────────── -->
+  <rect x="540" y="160" width="135" height="55" fill="#FFEDD5" rx="5" stroke="#FDBA74" stroke-width="1.5"/>
+  <text x="607" y="180" text-anchor="middle" font-size="9" font-weight="bold" fill="#7C2D12">int_orders_enriched</text>
+  <text x="607" y="192" text-anchor="middle" font-size="8" fill="#9A3412">join 4 tabelas</text>
+  <text x="607" y="204" text-anchor="middle" font-size="8" fill="#9A3412">grão: item/pedido</text>
+
+  <rect x="548" y="310" width="119" height="22" fill="#C2410C" rx="4"/>
+  <text x="607" y="325" text-anchor="middle" font-size="9" fill="white">materialized: view</text>
+
+  <!-- ── MART MODELS ──────────────────────────────────────── -->
+  <!-- dim boxes -->
+  <rect x="710" y="115" width="145" height="35" fill="#F3E8FF" rx="5" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="782" y="132" text-anchor="middle" font-size="9" font-weight="bold" fill="#5B21B6">dim_customers</text>
+  <text x="782" y="144" text-anchor="middle" font-size="8" fill="#7C3AED">customer_sk (surrogate)</text>
+
+  <rect x="710" y="160" width="145" height="35" fill="#F3E8FF" rx="5" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="782" y="177" text-anchor="middle" font-size="9" font-weight="bold" fill="#5B21B6">dim_products</text>
+  <text x="782" y="189" text-anchor="middle" font-size="8" fill="#7C3AED">product_sk + margin_tier</text>
+
+  <rect x="710" y="205" width="145" height="35" fill="#F3E8FF" rx="5" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="782" y="222" text-anchor="middle" font-size="9" font-weight="bold" fill="#5B21B6">dim_date</text>
+  <text x="782" y="234" text-anchor="middle" font-size="8" fill="#7C3AED">2022–2026 · date_sk</text>
+
+  <!-- fact box (central star) -->
+  <rect x="710" y="260" width="145" height="55" fill="#EDE9FE" rx="5" stroke="#A78BFA" stroke-width="2"/>
+  <text x="782" y="280" text-anchor="middle" font-size="10" font-weight="bold" fill="#4C1D95">★ fact_sales</text>
+  <text x="782" y="293" text-anchor="middle" font-size="8" fill="#5B21B6">grão: item/pedido</text>
+  <text x="782" y="305" text-anchor="middle" font-size="8" fill="#5B21B6">qty · price · margin</text>
+
+  <!-- rpt box -->
+  <rect x="710" y="330" width="145" height="35" fill="#DDD6FE" rx="5" stroke="#A78BFA" stroke-width="1.5"/>
+  <text x="782" y="347" text-anchor="middle" font-size="9" font-weight="bold" fill="#4C1D95">rpt_sales_summary</text>
+  <text x="782" y="359" text-anchor="middle" font-size="8" fill="#5B21B6">KPIs diários agregados</text>
+
+  <!-- materialization badge -->
+  <rect x="718" y="390" width="129" height="22" fill="#7C3AED" rx="4"/>
+  <text x="782" y="405" text-anchor="middle" font-size="9" fill="white">materialized: table</text>
+
+  <!-- ── BI LAYER ──────────────────────────────────────── -->
+  <rect x="900" y="155" width="170" height="75" fill="#FFE4E6" rx="6" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="985" y="177" text-anchor="middle" font-size="11" font-weight="bold" fill="#9F1239">📊 Streamlit</text>
+  <text x="985" y="193" text-anchor="middle" font-size="9" fill="#BE123C">KPI Cards</text>
+  <text x="985" y="207" text-anchor="middle" font-size="9" fill="#BE123C">Charts (Plotly)</text>
+  <text x="985" y="220" text-anchor="middle" font-size="9" fill="#BE123C">localhost:8501</text>
+
+  <rect x="900" y="250" width="170" height="50" fill="#FFE4E6" rx="6" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="985" y="270" text-anchor="middle" font-size="10" font-weight="bold" fill="#9F1239">📖 dbt Docs</text>
+  <text x="985" y="288" text-anchor="middle" font-size="9" fill="#BE123C">localhost:8080</text>
+
+  <!-- ── ARROWS ──────────────────────────────────────── -->
+  <!-- Sources → Raw -->
+  <line x1="165" y1="137" x2="198" y2="133" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="165" y1="197" x2="198" y2="178" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Raw → Staging (4 arrows) -->
+  <line x1="335" y1="133" x2="368" y2="133" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="335" y1="178" x2="368" y2="178" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="335" y1="223" x2="368" y2="223" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="335" y1="268" x2="368" y2="268" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Staging → Intermediate -->
+  <line x1="505" y1="190" x2="538" y2="190" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Intermediate → Marts -->
+  <line x1="675" y1="180" x2="708" y2="132" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="675" y1="185" x2="708" y2="178" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="675" y1="190" x2="708" y2="222" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="675" y1="195" x2="708" y2="278" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- fact → rpt -->
+  <line x1="782" y1="315" x2="782" y2="328" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Marts → BI -->
+  <line x1="855" y1="280" x2="898" y2="192" stroke="#64748B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="855" y1="348" x2="898" y2="270" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#64748B"/>
+    </marker>
+  </defs>
+
+  <!-- ── BOTTOM LEGEND ──────────────────────────────────────── -->
+  <rect x="20" y="555" width="1060" height="50" fill="#F1F5F9" rx="6" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="40" y="572" font-size="10" font-weight="bold" fill="#334155">Legenda:</text>
+  <rect x="110" y="560" width="12" height="12" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+  <text x="126" y="571" font-size="9" fill="#334155">Raw Tables (PostgreSQL)</text>
+  <rect x="280" y="560" width="12" height="12" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
+  <text x="296" y="571" font-size="9" fill="#334155">dbt Views (Staging)</text>
+  <rect x="440" y="560" width="12" height="12" fill="#FFEDD5" stroke="#FDBA74" stroke-width="1"/>
+  <text x="456" y="571" font-size="9" fill="#334155">dbt Views (Intermediate)</text>
+  <rect x="610" y="560" width="12" height="12" fill="#F3E8FF" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="626" y="571" font-size="9" fill="#334155">dbt Tables (Marts / Star Schema)</text>
+  <rect x="820" y="560" width="12" height="12" fill="#FFE4E6" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="836" y="571" font-size="9" fill="#334155">BI / Analytics Layer</text>
+
+  <text x="40" y="592" font-size="9" fill="#64748B">★ fact_sales é o centro do Star Schema — referencia todas as dimensões via surrogate keys geradas pelo dbt_utils</text>
+
+</svg>

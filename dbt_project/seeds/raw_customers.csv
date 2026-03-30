@@ -1,0 +1,16 @@
+customer_id,full_name,email,phone,city,state,country,segment,created_at,updated_at
+c001,Ana Paula Ferreira,ana.ferreira@email.com,11987654321,São Paulo,SP,Brazil,B2C,2022-03-10,2023-08-15
+c002,Carlos Eduardo Souza,carlos.souza@empresa.com.br,21987654322,Rio de Janeiro,RJ,Brazil,B2B,2022-04-22,2023-09-01
+c003,Mariana Lima,mariana.lima@email.com,51987654323,Porto Alegre,RS,Brazil,B2C,2022-05-15,2022-05-15
+c004,Roberto Alves,roberto.alves@corp.com,11987654324,São Paulo,SP,Brazil,VIP,2021-12-01,2024-01-10
+c005,Fernanda Costa,fernanda.costa@email.com,31987654325,Belo Horizonte,MG,Brazil,B2C,2023-01-08,2023-01-08
+c006,Lucas Mendes,lucas.mendes@empresa.com,41987654326,Curitiba,PR,Brazil,B2B,2022-08-19,2023-06-20
+c007,Julia Santos,julia.santos@email.com,85987654327,Fortaleza,CE,Brazil,B2C,2023-02-14,2023-02-14
+c008,Pedro Oliveira,pedro.oliveira@corp.com,11987654328,São Paulo,SP,Brazil,VIP,2021-06-30,2024-02-01
+c009,Camila Rodrigues,camila.rodrigues@email.com,62987654329,Goiânia,GO,Brazil,B2C,2023-03-22,2023-03-22
+c010,Thiago Nascimento,thiago.nascimento@empresa.com,71987654330,Manaus,AM,Brazil,B2B,2022-11-05,2023-12-10
+c011,Beatriz Carvalho,beatriz.carvalho@email.com,19987654331,Campinas,SP,Brazil,B2C,2023-04-18,2023-04-18
+c012,Diego Martins,diego.martins@corp.com,48987654332,Florianópolis,SC,Brazil,VIP,2021-09-15,2024-03-05
+c013,Amanda Pereira,amanda.pereira@email.com,79987654333,Campo Grande,MS,Brazil,B2C,2023-05-30,2023-05-30
+c014,Rafael Torres,rafael.torres@empresa.com,91987654334,Belém,PA,Brazil,B2B,2022-07-11,2023-07-11
+c015,Isabela Nunes,isabela.nunes@email.com,83987654335,Natal,RN,Brazil,B2C,2023-06-09,2023-06-09

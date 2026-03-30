@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: retailcorp_postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-retailcorp_dw}
+      POSTGRES_USER: ${POSTGRES_USER:-dw_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dw_password}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-dw_user} -d ${POSTGRES_DB:-retailcorp_dw}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: retailcorp_dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-retailcorp_dw}
+      POSTGRES_USER: ${POSTGRES_USER:-dw_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dw_password}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: streamlit run app/streamlit_app.py --server.address=0.0.0.0
+
+volumes:
+  postgres_data:

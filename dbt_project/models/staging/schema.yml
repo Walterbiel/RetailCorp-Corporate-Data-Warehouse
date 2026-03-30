@@ -1,0 +1,83 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: "Dados brutos originados do sistema transacional OLTP da RetailCorp"
+    tables:
+      - name: customers
+        description: "Cadastro de clientes"
+        columns:
+          - name: customer_id
+            tests: [unique, not_null]
+          - name: full_name
+            tests: [not_null]
+      - name: products
+        description: "Cadastro de produtos"
+        columns:
+          - name: product_id
+            tests: [unique, not_null]
+      - name: orders
+        description: "Pedidos realizados pelos clientes"
+        columns:
+          - name: order_id
+            tests: [unique, not_null]
+          - name: customer_id
+            tests: [not_null, relationships: {to: source('raw', 'customers'), field: customer_id}]
+      - name: order_items
+        description: "Itens de cada pedido"
+        columns:
+          - name: order_item_id
+            tests: [unique, not_null]
+          - name: order_id
+            tests: [not_null, relationships: {to: source('raw', 'orders'), field: order_id}]
+          - name: product_id
+            tests: [not_null, relationships: {to: source('raw', 'products'), field: product_id}]
+
+models:
+  - name: stg_customers
+    description: "Clientes padronizados: nomes limpos, email em lowercase, telefone apenas dígitos"
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+      - name: customer_name
+        tests: [not_null]
+      - name: customer_segment
+        tests:
+          - accepted_values:
+              values: ['B2C', 'B2B', 'VIP']
+
+  - name: stg_products
+    description: "Produtos padronizados: categoria em title case, margem calculada"
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+      - name: unit_price
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+
+  - name: stg_orders
+    description: "Pedidos com dias_para_envio calculado e status em lowercase"
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+      - name: order_status
+        tests:
+          - accepted_values:
+              values: ['pending', 'shipped', 'delivered', 'cancelled']
+
+  - name: stg_order_items
+    description: "Itens com totais calculados (bruto, desconto, líquido)"
+    columns:
+      - name: order_item_id
+        tests: [unique, not_null]
+      - name: quantity
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
+      - name: item_total_amount
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"

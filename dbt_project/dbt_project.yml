@@ -1,0 +1,36 @@
+name: 'retailcorp_dw'
+version: '1.0.0'
+config-version: 2
+
+profile: 'retailcorp_dw'
+
+# Caminhos dos diretórios dbt
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+analysis-paths: ["analyses"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configurações dos modelos por camada
+models:
+  retailcorp_dw:
+    staging:
+      +materialized: view        # Staging como views — não ocupa espaço
+      +schema: staging
+    intermediate:
+      +materialized: view        # Intermediate como views — reutilizável
+      +schema: intermediate
+    marts:
+      +materialized: table       # Marts como tabelas — performance analítica
+      +schema: marts
+
+# Configurações de seeds
+seeds:
+  retailcorp_dw:
+    +schema: raw
